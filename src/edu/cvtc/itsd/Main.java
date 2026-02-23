@@ -41,10 +41,14 @@ public class Main {
     public void insertString(FilterBypass fb, int offset, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
-      if (fb.getDocument() != null) {
+      if (stringToAdd == null) return;
+
+      String current = fb.getDocument().getText(0, fb.getDocument().getLength());
+      String result = current.substring(0, offset) + stringToAdd + current.substring(offset);
+
+      if (result.length() <= MAX_LENGTH && result.matches("\\d*")) {
         super.insertString(fb, offset, stringToAdd, attr);
-      }
-      else {
+      } else {
         Toolkit.getDefaultToolkit().beep();
       }
     }
@@ -53,14 +57,21 @@ public class Main {
     public void replace(FilterBypass fb, int offset, int lengthToDelete, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
-      if (fb.getDocument() != null) {
+      if (stringToAdd == null) stringToAdd = "";
+
+      String current = fb.getDocument().getText(0, fb.getDocument().getLength());
+      String result = current.substring(0, offset)
+          + stringToAdd
+          + current.substring(offset + lengthToDelete);
+
+      if (result.length() <= MAX_LENGTH && result.matches("\\d*")) {
         super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
-      }
-      else {
+      } else {
         Toolkit.getDefaultToolkit().beep();
       }
     }
   }
+
 
   // Lookup the card information after button press ///////////////////////////
   public static class Update implements ActionListener {

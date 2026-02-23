@@ -65,15 +65,16 @@ Module 4: Constrain developer card input length (Ticket 402)
 
 Test steps:
 
-- Build and run CiCo.
-- Attempt to type fewer than the required number of digits into the
+1: Build and run CiCo.
+2: Attempt to type fewer than the required number of digits into the
   developer card field (e.g., type 123)
 
-- Attempt to type more than the required number of
+3: Attempt to type more than the required number of
   digits into the developer card field (e.g., paste or type 123456789)
 
-- Attempt to type non‑digit characters (letters, symbols, spaces)
-- Enter exactly the required number of digits (e.g., 00000000)
+4: Attempt to type non‑digit characters (letters, symbols, spaces)
+
+5: Enter exactly the required number of digits (e.g., 00000000)
   and click Update
 
 Expected results
