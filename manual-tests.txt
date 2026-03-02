@@ -94,3 +94,20 @@ Expected results
   and the system should proceed exactly as it does for
   a valid card number in other tests.
 
+
+Module 5: Quit the Application when the window is Closed (Ticket 502)
+
+Test Steps:
+
+1. Build and run CiCo
+2. Observe the terminal or shell window where CiCo was launched.
+3. Close the CiCo window using the window’s close button (the red x in the title bar).
+4. Wait 1–2 seconds.
+
+Expected Results:
+
+- After step 3, the CiCo application should fully exit
+  instead of running in the background.
+- The shell or terminal should display the message “Clean shutdown”,
+  confirming that the shutdown hook was executed.
+- No Java process should remain active after the window is closed.
