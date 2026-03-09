@@ -111,3 +111,14 @@ Expected Results:
 - The shell or terminal should display the message “Clean shutdown”,
   confirming that the shutdown hook was executed.
 - No Java process should remain active after the window is closed.
+
+Module 6: Automatically submit after last digit of card number entered
+
+Test Steps:
+
+1. Build and run CiCo
+2. Enter 00000000
+
+Expected Results:
+
+The card number automatically submits
